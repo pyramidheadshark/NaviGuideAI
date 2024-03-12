@@ -1,0 +1,9 @@
+[prompts]
+
+[prompts.llama_tags_gen]
+[prompts.llama_tags_gen.maps]
+### Дополнить промпты
+
+[prompts.llama_summary_gen]
+
+[prompts.llama_def_gen]
