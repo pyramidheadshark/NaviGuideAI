@@ -1,0 +1,8 @@
+### Пример структуры для заполнения в тегах
+[tags]
+
+[tags.maps]
+
+[tags.maps.0]
+name = "map_tag_1"
+content = ["", ""]
