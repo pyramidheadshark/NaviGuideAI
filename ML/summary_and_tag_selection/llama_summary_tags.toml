@@ -1,8 +1,52 @@
-### Пример структуры для заполнения в тегах
+[prompt_parts]
+prompt_part_1 = """'prompt': 'Compare user input to the list of tags. Your answer should be in form: 'Tag: {chosen tag}'. ASSUME THE CUSTOMER WANTS TO SEE ONLY ONE CHOSEN TAG.'
+'system_prompt': 'You are a comparison system who compares user input to the list of tags. Your answer should bne in form: 'Tag: {chosen tag}'. ASSUME THE CUSTOMER WANTS TO SEE ONLY ONE CHOSEN TAG.'
+'context': User input is '
+"""
+prompt_part_2 = "'. The list of tags is:"
+#
+#
+#
 [tags]
+#
+    [tags.navigation]
+        [tags.navigation.locate_nearest_object]
+        tag = "Show me the nearest object/organization"
+        prompt = ""
+        [tags.navigation.locate_object_by_adress]
+        tag = "Show me the object/organization by address"
+        prompt = ""
+        [tags.navigation.find_a_route_to_the_nearest_object]
+        tag = "Show me the route to the nearest object/organization"
+        prompt = ""
+        [tags.navigation.find_a_route_to_object_by_adress]
+        tag = "Show me the route to the object/organization by address"
+        prompt = ""
+        [tags.navigation.locate_my_position]
+        tag = "Where am I?"
+        prompt = ""
+#
 
-[tags.maps]
+#
+    [tags.description]
+        [tags.description.describe_object]
+        tag = "Show/tell me the description of the object/organization"
+        prompt = ""
+        [tags.description.show_reviews_of_object]
+        tag = "Show me reviews of the object/organization"
+        prompt = ""
+#
 
-[tags.maps.0]
-name = "map_tag_1"
-content = ["", ""]
+#
+    [tags.affiche]
+        [tags.affiche.show_affiche]
+        tag = "Show me the affiche/program"
+        prompt = ""
+#
+
+#
+    [tags.other]
+        [tags.other.other]
+        tag = "Other question"
+        prompt = ""
+#
