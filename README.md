@@ -25,7 +25,7 @@
 
 ## About The Project
 
-![Screen Shot](images/screenshot.png)
+![Concept([images/screenshot.png](https://i.postimg.cc/pVK2hg6t/2024-03-14-154421126.png))
 
 Write smth
 
