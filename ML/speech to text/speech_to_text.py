@@ -1,19 +1,33 @@
+import os
 import whisper
 
-model = whisper.load_model("tiny")
 
-# load audio and pad/trim it to fit 30 seconds
-audio = whisper.load_audio("..\ML\speech to text\dictor.mp3")
-audio = whisper.pad_or_trim(audio)
-mel = whisper.log_mel_spectrogram(audio).to(model.device)
+def process_and_save_audio(input_audio, output_dir):
+    model = whisper.load_model("tiny")
+    audio = whisper.load_audio(input_audio)
+    audio = whisper.pad_or_trim(audio)
+    mel = whisper.log_mel_spectrogram(audio).to(model.device)
+    _, probs = model.detect_language(mel)
+    detected_language = max(probs, key=probs.get)
+    options = whisper.DecodingOptions()
+    result = whisper.decode(model, mel, options)
+    output_file = os.path.join(output_dir, f"output_{len(os.listdir(output_dir)) + 1}.txt")
+    with open(output_file, "w") as file:
+        file.write(result.text)
 
-# detect the spoken language
-_, probs = model.detect_language(mel)
-print(f"Detected language: {max(probs, key=probs.get)}")
 
-# decode the audio
-options = whisper.DecodingOptions()
-result = whisper.decode(model, mel, options)
+# Usage example
+input_audio = "dictor.mp3"
+output_directory = "stt_output"
+process_and_save_audio(input_audio, output_directory)
 
-# print the recognized text
-print(result.text)
+# import whisper
+# model = whisper.load_model("tiny")
+# audio = whisper.load_audio("dictor.mp3")
+# audio = whisper.pad_or_trim(audio)
+# mel = whisper.log_mel_spectrogram(audio).to(model.device)
+# _, probs = model.detect_language(mel)
+# print(f"Detected language: {max(probs, key=probs.get)}")
+# options = whisper.DecodingOptions()
+# result = whisper.decode(model, mel, options)
+# print(result.text)
