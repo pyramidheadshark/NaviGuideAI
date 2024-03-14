@@ -20,7 +20,7 @@ def process_and_save_audio(input_audio, output_dir):
 input_audio = "dictor.mp3"
 output_directory = "stt_output"
 process_and_save_audio(input_audio, output_directory)
-
+print("Done!")
 # import whisper
 # model = whisper.load_model("tiny")
 # audio = whisper.load_audio("dictor.mp3")
