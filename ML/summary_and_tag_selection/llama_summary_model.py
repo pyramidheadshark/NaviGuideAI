@@ -3,7 +3,7 @@ import toml
 
 
 def extract_tags_plus_prompt(file_path="llama_summary_tags.toml"):
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         data = toml.load(file)
         tags = data["tags"]
         prompt_parts = data["prompt_parts"]
@@ -15,7 +15,8 @@ def construct_list_of_tags(tags):  # Format: [tag, prompt, sub, subsub]
     shorten_list = []
     for sub in tags:
         for subsub in tags[sub]:
-            local_list = [tags[sub][subsub]["tag"], tags[sub][subsub]["prompt"], sub, subsub]
+            local_list = [tags[sub][subsub]["tag"], tags[sub][subsub]["prompt"], sub, subsub,
+                          tags[sub][subsub]["llama_repeat"]]
             list_of_tags.append(local_list)
             shorten_list.append(tags[sub][subsub]["tag"])
     return [list_of_tags, shorten_list]
@@ -29,7 +30,7 @@ def construct_prompt(prompt_parts, shorten_list, user_input):
 
 def search_by_tags(list_of_tags, response):
     for tag in list_of_tags:
-        if tag[1] in response:
+        if tag[0] in response:
             return tag
 
 
@@ -50,7 +51,7 @@ def ask_llama(context, role="user"):
             }
         ],
         "temperature": 0.2,
-        "top_p": 0.7,
+        "top_p": 0.6,
         "max_tokens": 1024,
         "seed": 42,
         "stream": False
@@ -70,12 +71,15 @@ def ask_llama(context, role="user"):
     return response.json()
 
 
-def llama_summary_model(user_input): # Format: [tag, prompt, sub, subsub], user_input
+def llama_summary_model(user_input):  # Format: [tag, prompt, sub, subsub], user_input
     tags, prompt_parts = extract_tags_plus_prompt()
     list_of_tags, shorten_list = construct_list_of_tags(tags)
     prompt = construct_prompt(prompt_parts, shorten_list, user_input)
     response = ask_llama(prompt)
-    return search_by_tags(list_of_tags, response["choices"][0]["message"]["content"]), user_input
+    result = [search_by_tags(list_of_tags, response["choices"][0]["message"]["content"]), user_input]
+    if result[0][4] != '':
+        llama_repeat_prompt = result[0][4] + user_input
+        result[0][4] = ask_llama(llama_repeat_prompt)["choices"][0]["message"]["content"]
+    return result
 
-
-print(llama_summary_model("Где находится ближайшая кофейня?"))
+print(llama_summary_model("Где находится магазин чая неподалёку?"))
