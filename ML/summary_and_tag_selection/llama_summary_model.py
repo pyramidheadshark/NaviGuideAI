@@ -70,12 +70,12 @@ def ask_llama(context, role="user"):
     return response.json()
 
 
-def llama_summary_model(user_input): # Format: [tag, prompt, sub, subsub]
+def llama_summary_model(user_input): # Format: [tag, prompt, sub, subsub], user_input
     tags, prompt_parts = extract_tags_plus_prompt()
     list_of_tags, shorten_list = construct_list_of_tags(tags)
     prompt = construct_prompt(prompt_parts, shorten_list, user_input)
     response = ask_llama(prompt)
-    return search_by_tags(list_of_tags, response["choices"][0]["message"]["content"])
+    return search_by_tags(list_of_tags, response["choices"][0]["message"]["content"]), user_input
 
 
-# print(llama_summary_model("Где находится ближайшая кофейня?"))
+print(llama_summary_model("Где находится ближайшая кофейня?"))
