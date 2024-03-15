@@ -80,5 +80,5 @@ input_data_1 = [['Show/locate me the nearest object/organization',
             'Где находится магазин чая неподалёку?', 'ru']
 input_data_2 = [['Tell/describe/write me a historical/culture story/history/place/event/building/person/object', '                ТЫ ИСТОРИЧЕСКИЙ АССИСТЕНТ-ГИД. ОТВЕЧАЙ В ИНФОСТИЛЕ, В ПОЛОЖИТЕЛЬНОМ ТОНЕ.".\n        ', 'other', 'other', '', ''], 'Расскажи мне о Петре первом', 'ru']
 input_data_3 = [['Show/tell me a historical/culture story/history/place/event/building/person/object', '                ТЫ ИСТОРИЧЕСКИЙ АССИСТЕНТ-ГИД. ОТВЕЧАЙ В ИНФОСТИЛЕ, В ПОЛОЖИТЕЛЬНОМ ТОНЕ.".\n        ', 'other', 'other', '', ''], 'Erzähl mir von Peter dem Ersten', 'de']
-# print(yandex_gpt_model(input_data_3))
-# print("end")
+print(yandex_gpt_model(input_data_3))
+print("end")
