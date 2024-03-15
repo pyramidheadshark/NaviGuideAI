@@ -3,7 +3,7 @@ import ast
 import time
 
 
-def yandex_gpt_ask(prompt="Do not answer. It's a test", api_key="AQVN2L3Brv3dSuAGd78-534nR_5EWuMgQsORMtcE"):
+def yandex_gpt_ask(prompt, api_key="AQVN2L3Brv3dSuAGd78-534nR_5EWuMgQsORMtcE"):
     modelUri = "gpt://b1ghp7ek9a8v0c3e2qs0/yandexgpt-lite"
 
     headers = {
@@ -15,8 +15,8 @@ def yandex_gpt_ask(prompt="Do not answer. It's a test", api_key="AQVN2L3Brv3dSuA
         "modelUri": modelUri,
         "completionOptions": {
             "stream": False,
-            "temperature": 0.6,
-            "maxTokens": "3000"
+            "temperature": 0.25,
+            "maxTokens": "4000"
         },
         "messages": [
             {
@@ -28,22 +28,20 @@ def yandex_gpt_ask(prompt="Do not answer. It's a test", api_key="AQVN2L3Brv3dSuA
 
     url = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
 
-
     response = requests.post(url, headers=headers, json=data)
     output_line = ast.literal_eval(response.text)["result"]["alternatives"][0]["message"]["text"]
     return output_line
 
-
     ### If streaming
-    #response = requests.post(url, headers=headers, json=data, stream=True)
-    #for line in response.iter_lines():
+    # response = requests.post(url, headers=headers, json=data, stream=True)
+    # for line in response.iter_lines():
     #    if line:
     #        output_line = ast.literal_eval(line.decode('utf-8'))
     #        print(output_line["result"]["alternatives"][0]["message"]["text"], end="\n\n\n")
 
     ### Testing streaming_time
-    #start_time = time.time()
-    #for line in response.iter_lines():
+    # start_time = time.time()
+    # for line in response.iter_lines():
     #    if line:
     #        output_line = ast.literal_eval(line.decode('utf-8'))
     #        print(output_line["result"]["alternatives"][0]["message"]["text"], end="\n\n\n")
@@ -52,8 +50,8 @@ def yandex_gpt_ask(prompt="Do not answer. It's a test", api_key="AQVN2L3Brv3dSuA
     #        print("Elapsed time:", elapsed_time)
 
 
-def construct_yandex_gpt_prompt(tag, user_input): # Дополнить структуру после доьбавления промптов в тегах
-    prompt = tag[1] + " " + user_input
+def construct_yandex_gpt_prompt(tag, user_input, response_language):  # Дополнить структуру после добавления промптов в тегах
+    prompt = tag[1] + " " + user_input + f"\nОТВЕЧАЙ НА {response_language} ЯЗЫКЕ"
     return prompt
 
 

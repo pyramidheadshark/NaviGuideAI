@@ -11,19 +11,35 @@ prompt_part_2 = "'. The list of tags is:"
 #
     [tags.navigation]
         [tags.navigation.locate_nearest_object]
-        tag = "Show me the nearest object/organization"
-        prompt = ""
+        tag = "Show/locate me the nearest object/organization"
+        llama_repeat = """
+        prompt': 'Summarize user's input into wanted type of location. Your answer should be in form: 'Location: {wanted type of location IN RUSSIAN}'.'
+'system_prompt': 'You are a summarization system that converts user's input into type of location he wants to find. Your answer should be in form: 'Location: {wanted type of location IN RUSSIAN; }'.'
+'context': """
+        prompt = """
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+"""
         [tags.navigation.locate_object_by_adress]
-        tag = "Show me the object/organization by address"
-        prompt = ""
+        tag = "Show/locate me the object/organization by address"
+        llama_repeat = ""
+        prompt = """
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+"""
         [tags.navigation.find_a_route_to_the_nearest_object]
-        tag = "Show me the route to the nearest object/organization"
-        prompt = ""
+        tag = "Show/locate me the route to the nearest object/organization"
+        llama_repeat = ""
+        prompt = """
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+"""
         [tags.navigation.find_a_route_to_object_by_adress]
-        tag = "Show me the route to the object/organization by address"
-        prompt = ""
+        tag = "Show/locate me the route to the object/organization by address"
+        llama_repeat = ""
+        prompt = """
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+"""
         [tags.navigation.locate_my_position]
-        tag = "Where am I?"
+        tag = "Show/locate my current position"
+        llama_repeat = ""
         prompt = ""
 #
 
@@ -31,9 +47,12 @@ prompt_part_2 = "'. The list of tags is:"
     [tags.description]
         [tags.description.describe_object]
         tag = "Show/tell me the description of the object/organization"
+        llama_repeat = ""
         prompt = ""
+
         [tags.description.show_reviews_of_object]
         tag = "Show me reviews of the object/organization"
+        llama_repeat = ""
         prompt = ""
 #
 
@@ -41,6 +60,7 @@ prompt_part_2 = "'. The list of tags is:"
     [tags.affiche]
         [tags.affiche.show_affiche]
         tag = "Show me the affiche/program"
+        llama_repeat = ""
         prompt = ""
 #
 
@@ -48,5 +68,6 @@ prompt_part_2 = "'. The list of tags is:"
     [tags.other]
         [tags.other.other]
         tag = "Other question"
+        llama_repeat = ""
         prompt = ""
 #
