@@ -1,6 +1,6 @@
 [prompt_parts]
-prompt_part_1 = """'prompt': 'Compare user input to the list of tags. Your answer should be in form: 'Tag: {chosen tag}'. ASSUME THE CUSTOMER WANTS TO SEE ONLY ONE CHOSEN TAG.'
-'system_prompt': 'You are a comparison system who compares user input to the list of tags. Your answer should bne in form: 'Tag: {chosen tag}'. ASSUME THE CUSTOMER WANTS TO SEE ONLY ONE CHOSEN TAG.'
+prompt_part_1 = """'prompt': 'Compare user input to the list of tags. YOUR ANSWER SHOULD BE IN FORM: 'Tag: {chosen tag}'. ASSUME THE CUSTOMER WANTS TO SEE ONLY ONE CHOSEN TAG. ANSWER SHOULD BE SHORT'
+'system_prompt': 'You are a comparison system who compares user input to the list of tags. YOUR ANSWER SHOULD BE IN FORM: 'Tag: {chosen tag}'. ASSUME THE CUSTOMER WANTS TO SEE ONLY ONE CHOSEN TAG.'
 'context': User input is '
 """
 prompt_part_2 = "'. The list of tags is:"
@@ -13,47 +13,86 @@ prompt_part_2 = "'. The list of tags is:"
         [tags.navigation.locate_nearest_object]
         tag = "Show/locate me the nearest object/organization"
         llama_repeat = """
-        prompt': 'Summarize user's input into wanted type of location. Your answer should be in form: 'Location: {wanted type of location IN RUSSIAN}'.'
-'system_prompt': 'You are a summarization system that converts user's input into type of location he wants to find. Your answer should be in form: 'Location: {wanted type of location IN RUSSIAN; }'.'
+        prompt': 'Summarize user's input into wanted type of location. Your answer should be in form: 'Location: {wanted type of location}'.'
+'system_prompt': 'You are a summarization system that converts user's input into type of location he wants to find. Your answer should be in form: 'Location: {wanted type of location}'.'
 'context': """
         prompt = """
         ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
 """
+        api_tag = ""
         [tags.navigation.locate_object_by_adress]
         tag = "Show/locate me the object/organization by address"
-        llama_repeat = ""
+        llama_repeat = """
+        prompt': 'Summarize user's input into wanted adress. Your answer should be in form: 'Location: {adress}'.'
+'system_prompt': 'You are a summarization system that converts user's input into adress he wants to find. Your answer should be in form: 'Location: {adress}'.'
+'context': """
         prompt = """
         ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
 """
+        api_tag = ""
         [tags.navigation.find_a_route_to_the_nearest_object]
         tag = "Show/locate me the route to the nearest object/organization"
-        llama_repeat = ""
+        llama_repeat = """
+        prompt': 'Summarize user's input into wanted type of location. Your answer should be in form: 'Location: {wanted type of location}'.'
+'system_prompt': 'You are a summarization system that converts user's input into type of location he wants to find. Your answer should be in form: 'Location: {wanted type of location}'.'
+'context': """
         prompt = """
         ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
 """
+        api_tag = ""
         [tags.navigation.find_a_route_to_object_by_adress]
         tag = "Show/locate me the route to the object/organization by address"
-        llama_repeat = ""
+        llama_repeat = """
+        prompt': 'Summarize user's input into wanted adress. Your answer should be in form: 'Location: {adress}'.'
+'system_prompt': 'You are a summarization system that converts user's input into adress he wants to find. Your answer should be in form: 'Location: {adress}'.'
+'context': """
         prompt = """
         ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
 """
+        api_tag = ""
         [tags.navigation.locate_my_position]
         tag = "Show/locate my current position"
         llama_repeat = ""
-        prompt = ""
+        prompt = """
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+"""
+        api_tag = ""
+#
+
+#
+    [tags.other]
+        [tags.other.other]
+        tag = "Show/tell me a historical/culture story/history/place/event/building/person/object"
+        llama_repeat = ""
+        prompt = """
+                ТЫ ИСТОРИЧЕСКИЙ АССИСТЕНТ-ГИД. ОТВЕЧАЙ В ИНФОСТИЛЕ, В ПОЛОЖИТЕЛЬНОМ ТОНЕ.".
+        """
+        api_tag = ""
 #
 
 #
     [tags.description]
         [tags.description.describe_object]
-        tag = "Show/tell me the description of the object/organization"
-        llama_repeat = ""
-        prompt = ""
+        tag = "Show/tell me the description of the city object/organization in navigational context"
+        llama_repeat = """
+        prompt': 'Summarize user's input into wanted name location. Your answer should be in form: 'Location: {name}'.'
+'system_prompt': 'You are a summarization system that converts user's input into name of location he wants to find. Your answer should be in form: 'Location: {name}'.'
+'context': """
+        prompt = """
+        ТЫ АССИСТЕНТ-ГИД. ОТВЕЧАЙ В ИНФОСТИЛЕ И МАКСИМАЛЬНО КРАТКО.".
+"""
+        api_tag = ""
 
         [tags.description.show_reviews_of_object]
-        tag = "Show me reviews of the object/organization"
-        llama_repeat = ""
-        prompt = ""
+        tag = "Show me reviews of the city object/organization in navigational context"
+        llama_repeat = """
+        prompt': 'Summarize user's input into wanted name location. Your answer should be in form: 'Location: {name}'.'
+'system_prompt': 'You are a summarization system that converts user's input into name of location he wants to find. Your answer should be in form: 'Location: {name}'.'
+'context': """
+        prompt = """
+        ТЫ АССИСТЕНТ-ГИД. ОТВЕЧАЙ В ИНФОСТИЛЕ, В ПОЛОЖИТЕЛЬНОМ ТОНЕ И МАКСИМАЛЬНО КРАТКО.".
+"""
+        api_tag = ""
 #
 
 #
@@ -61,13 +100,9 @@ prompt_part_2 = "'. The list of tags is:"
         [tags.affiche.show_affiche]
         tag = "Show me the affiche/program"
         llama_repeat = ""
-        prompt = ""
+        prompt = """
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю афишу.".
+"""
+        api_tag = ""
 #
 
-#
-    [tags.other]
-        [tags.other.other]
-        tag = "Other question"
-        llama_repeat = ""
-        prompt = ""
-#
