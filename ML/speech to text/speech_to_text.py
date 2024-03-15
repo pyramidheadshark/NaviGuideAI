@@ -17,7 +17,7 @@ def process_and_save_audio(input_audio, output_dir):
     mp3_audio = convert_to_mp3(input_audio, output_dir)
 
     # Остальной код остается без изменений
-    model = whisper.load_model("small")
+    model = whisper.load_model("tiny")
     audio = whisper.load_audio(mp3_audio)
     audio = whisper.pad_or_trim(audio)
     mel = whisper.log_mel_spectrogram(audio).to(model.device)
@@ -31,6 +31,6 @@ def process_and_save_audio(input_audio, output_dir):
 
 
 # Пример использования
-input_audio = "output_zh_1.wav"
+input_audio = "output_de_2.wav"
 output_directory = "stt_output"
 process_and_save_audio(input_audio, output_directory)
