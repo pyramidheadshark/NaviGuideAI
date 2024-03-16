@@ -1,0 +1,15 @@
+.LangChoise{
+  background: linear-gradient(#DDECE0, #EFE0BA);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.choiseLang{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

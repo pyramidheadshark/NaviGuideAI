@@ -1,0 +1,12 @@
+.Tip{
+  background-color: rgb(214, 214, 214);
+  margin: 10px;
+  /* display: inline-block; */
+  flex-wrap: wrap;
+  padding: 20px;
+  /* min-width: 30px; */
+  max-width: 30vw;
+  
+  justify-content: center;
+  border-radius: 16px;
+}

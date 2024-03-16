@@ -1,0 +1,69 @@
+.Tips{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.VoiceButton{
+  width: 65px;
+  height: 65px;
+  border-radius: 100%;
+}
+
+.VoiceButton > img {
+  width: 50px;
+  height: 50px;
+}
+
+.VoiceHelper{
+  transform: scale(1); 
+  transition: 0.45s all ease;
+  background: linear-gradient(#DDECE0, #EFE0BA);
+  height: 100vh;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.white{
+  width: 100px;
+  height: 100px;
+  background-color: saddlebrown;
+}
+
+.Helper{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.Communication{
+  scroll-behavior:smooth;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(204, 197, 187, 0.397);
+  width: 80vw;
+  margin: 0 20px;
+  padding: 20px 0;
+  border-radius: 16px;
+}
+
+.Speak{
+  margin: 20px;
+  font-size: 32px;
+}
+
+.Messages{
+  overflow-y: scroll;
+  width: auto;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  /* flex-direction: column-reverse; */
+  width: 95%;
+}

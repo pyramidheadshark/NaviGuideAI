@@ -1,0 +1,10 @@
+.avatar{
+  --width: 300px;
+  width: var(--width);
+  height: var(--width);
+  background-color: blueviolet;
+}
+.center{
+  display: flex;
+  justify-content: center;
+}
