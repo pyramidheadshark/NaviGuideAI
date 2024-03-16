@@ -1,0 +1,53 @@
+.Tips{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.VoiceButton{
+  width: 65px;
+  height: 65px;
+  border-radius: 100%;
+}
+
+.VoiceButton > img {
+  width: 50px;
+  height: 50px;
+}
+
+.VoiceHelper{
+  background: linear-gradient(#DDECE0, #EFE0BA);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.white{
+  width: 100px;
+  height: 100px;
+  background-color: saddlebrown;
+}
+
+.Helper{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.Communication{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(204, 197, 187, 0.397);
+  margin: 0 20px;
+  padding: 20px 0;
+  border-radius: 16px;
+}
+
+.Speak{
+  margin: 20px;
+  font-size: 32px;
+}

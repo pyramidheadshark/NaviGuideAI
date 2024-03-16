@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './style.css'
 
 interface Props {
@@ -8,10 +9,10 @@ interface Props {
 const LangButton = ({images, text}: Props) => {
 
   return (
-    <div className='LangButton'>
+    <Link to='/Chat' className='LangButton'>
       <img src={images} alt="Slide 1" />
       <span> {text} </span>
-    </div>
+    </Link>
   )
 }
 

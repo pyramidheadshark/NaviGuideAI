@@ -1,3 +1,4 @@
+
 import './style.css'
 import { Slide } from 'react-slideshow-image';
 
@@ -16,7 +17,7 @@ const SlideShow = ({images}: Props) => {
           </div>
         )
       })}
-    </Slide>
+    </Slide>  
   )
 }
 
