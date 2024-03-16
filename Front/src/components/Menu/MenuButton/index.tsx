@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import './style.css'
 import Blur from '../../Blur'
 
@@ -11,9 +11,8 @@ interface Props {
 const MenuButton = ({children, widget, childName}: Props) => {
   useEffect
   const click = () => {
-    console.log()
-    const QR: HTMLElement = document.querySelector(`.Blur > .${childName}`)!.parentNode as HTMLElement;
-    QR.style.display = "inherit"
+    const QR: HTMLElement = document.querySelector(`.Blur > .${childName}`)?.parentNode as HTMLElement;
+    if (QR) QR.style.display = "inherit"
   }
   return (
     <>
