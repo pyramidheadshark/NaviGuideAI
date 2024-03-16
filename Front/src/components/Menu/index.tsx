@@ -2,10 +2,6 @@ import MenuButton from './MenuButton'
 import ToggleMenuButton from './ToggleMenuButton'
 import './style.css'
 
-interface Props {
-  images: string[]
-}
-
 const Menu = () => {
 
   return (

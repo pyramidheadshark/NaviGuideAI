@@ -5,8 +5,6 @@ import './style.css';
 import MyMessage from '../Message/MyMessage';
 import AIMessage from '../Message/AIMessage';
 
-interface Props {}
-
 const VoiceHelper = () => {
   const [messages, setMessages] = useState<string[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
