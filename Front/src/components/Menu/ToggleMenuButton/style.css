@@ -1,12 +1,11 @@
 .ToggleMenuButton{
-  margin-top: 20px;
   margin-bottom: 10px;
   height: 40px;
   width: 40px;
-  background-color: rgb(38, 0, 255);
+  background-color: rgb(235, 235, 235);
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 60px;
+  font-size: 45px;
 }

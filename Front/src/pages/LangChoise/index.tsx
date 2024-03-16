@@ -31,7 +31,8 @@ const LangChoise = () => {
       </div>
       <div>
           Выберите язык
-          choise a language
+          <br />
+          Choise a language
         </div>
     </div>
   )

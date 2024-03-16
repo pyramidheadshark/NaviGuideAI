@@ -12,6 +12,10 @@
   height: var(--height);
   width: calc(var(--height) * 1.5);
 }
-.LangButton > span{
+.LangButtonText{
   margin: auto;
+  color: black
+}
+a{
+  text-decoration: none;
 }

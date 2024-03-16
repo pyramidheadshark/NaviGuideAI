@@ -11,7 +11,7 @@ const LangButton = ({images, text}: Props) => {
   return (
     <Link to='/Chat' className='LangButton'>
       <img src={images} alt="Slide 1" />
-      <span> {text} </span>
+      <span className='LangButtonText'> {text} </span>
     </Link>
   )
 }

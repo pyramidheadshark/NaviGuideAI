@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Pacifico&display=swap');
+
+
 *{
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
   margin: 0;
   padding: 0;
 }
