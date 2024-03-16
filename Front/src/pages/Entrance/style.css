@@ -1,0 +1,18 @@
+header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+}
+footer  {
+  --width: 100px;
+  position: absolute;
+  width: var(--width);
+  bottom: 10px;
+  left: calc(50% - calc(var(--width)/ 2));
+  z-index: 100;
+}
+footer > button {
+  background-color: rgba(129, 129, 129, 0.623);
+  border-radius: 12px;
+}
