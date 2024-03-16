@@ -4,13 +4,11 @@ import './style.css'
 const Avatar = () => {
 
   return (
-    // <div>
     <div className='center'>
       <div className='avatar'>
-      
+        Avatar
       </div>
     </div>
-    // </div>
   )
 }
 
