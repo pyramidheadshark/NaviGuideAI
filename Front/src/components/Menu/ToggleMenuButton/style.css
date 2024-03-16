@@ -3,10 +3,12 @@
   margin-bottom: 10px;
   height: 40px;
   width: 40px;
-  background-color: rgb(38, 0, 255);
+  background-color: rgb(235, 235, 235);
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 60px;
+  font-size: 45px;
 }
+
+/* 0fd7a82c-7aaa-48c4-a574-ef4c184cb892 */

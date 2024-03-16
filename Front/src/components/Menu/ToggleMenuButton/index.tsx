@@ -12,7 +12,7 @@ const ToggleMenuButton = () => {
   }
   return (
       <div className='ToggleMenuButton' onClick={click}>
-        { open  ? "+" : "-" }
+        { open ? " ↑" : "↓" }
       </div>
   )
 }
