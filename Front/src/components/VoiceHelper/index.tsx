@@ -28,6 +28,7 @@ const VoiceHelper = () => {
  
   const onStop = async (recordedData: ReactMicStopEvent) => {
     const response = await voicePush(recordedData.blob)
+    setMessages([...messages, response.data.message])
   }
 
 
