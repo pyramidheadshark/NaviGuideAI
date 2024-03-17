@@ -1,3 +1,4 @@
+'''
 import os, sys, signal, json, requests
 
 base_url = "http://localhost:8011"
@@ -49,3 +50,4 @@ Data = {
 response = (
     requests.post(base_url+"/A2F/Exporter/ExportGeometryCache", json=Data)
 ).json()
+'''
