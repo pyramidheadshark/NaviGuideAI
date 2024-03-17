@@ -7,12 +7,12 @@ const Entrance = () => {
   const images = [
     "https://cdn2.tu-tu.ru/image/pagetree_node_data/1/c5338ccdf94843a66ed3a41772dc6120",
     "https://fs.tonkosti.ru/74/1q/741q7njztqo8gw0ssss4k4w0g.jpg",
-    "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+    "https://img.magput.ru/pics/large/640b24f9-af5f-422a-9f8a-68f433dd6c94.jpg",
   ];
 
   return (
     <>
-        <header>Информационный Стенд</header>
+        <header className='HeaderEntrance'>Информационный Стенд</header>
         <SlideShow images={images}/>
         <footer>
           <Link to='/Langs'>          
