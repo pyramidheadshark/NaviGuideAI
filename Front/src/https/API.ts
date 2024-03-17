@@ -1,7 +1,8 @@
 import { $host } from ".";
 
-
 export const voicePush = async (voice: Blob) => {
-  const response = await $host.post("api/user/login", { voice });
+  const formData = new FormData();
+  formData.append("blob", voice, "voice.wav");
+  const response = await $host.post("/", formData);
   return response;
 };

@@ -23,13 +23,23 @@ const VoiceHelper = () => {
 
 
   const onData = (recordedBlob: any) => {
-    console.log('chunk of real-time data is: ', recordedBlob);
   }
  
-  const onStop = async (recordedData: ReactMicStopEvent) => {
-    const response = await voicePush(recordedData.blob)
-    setMessages([...messages, response.data.message])
+const onStop = async (recordedData: ReactMicStopEvent) => {
+    console.log('recorded blob', recordedData.blob);
+    const response: Blob = await voicePush(recordedData.blob) as unknown as Blob
+    console.log(response.data)
+    const messageFromResponse = await response.data.text()
+    console.log(messageFromResponse)
+    const newJSONMessage = JSON.parse(messageFromResponse)
+    console.log(newJSONMessage)
+    const newMessage = newJSONMessage.message
+    console.log(newMessage)
+    const newMessage2 = newJSONMessage.chat_response
+    console.log(newMessage)
+    setMessages((messages) => [...messages, newMessage, newMessage2 ])
   }
+
 
 
   const [messages, setMessages] = useState<string[]>([]);

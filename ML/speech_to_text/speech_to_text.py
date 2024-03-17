@@ -2,6 +2,33 @@ import os
 import whisper
 from pydub import AudioSegment
 from pydub.utils import which
+AudioSegment.converter = which("ffmpeg")
+
+if not os.path.exists('stt_input'):
+    os.makedirs('stt_input')
+
+
+def get_latest_file_in_dir(directory):
+    files = os.listdir(directory)
+    # Check if there are any files in the directory
+    if not files:
+        return None  # Return None if there are no files
+
+    paths = [os.path.join(directory, basename) for basename in files]
+    latest_file = max(paths, key=os.path.getctime)
+    return latest_file
+
+
+def convert_to_mp3():
+    input_audio = get_latest_file_in_dir('stt_input')
+    sound = AudioSegment.from_file(input_audio)
+    output_audio = sound.export(format="mp3")
+    return output_audio
+
+import os
+import whisper
+from pydub import AudioSegment
+from pydub.utils import which
 
 # Устанавливаем путь к ffmpeg, если он еще не установлен
 AudioSegment.converter = which("ffmpeg")
@@ -32,16 +59,9 @@ def process_and_save_audio(input_audio):
     detected_language = max(probs, key=probs.get)
     options = whisper.DecodingOptions()
     result = whisper.decode(model, mel, options)
-    # output_file = os.path.join(output_dir, f"output_{len(os.listdir(output_dir)) + 1}.txt")
-    # with open(output_file, "w", encoding='utf-8') as file:
-    #    file.write(result.text)
+    output_dir = "ML/speech_to_text/stt_output"
+    output_file = os.path.join(output_dir, f"output_{len(os.listdir(output_dir)) + 1}.txt")
+    with open(output_file, "w", encoding='utf-8') as file:
+        file.write(result.text)
     output_text = result.text
     return output_text
-
-
-# Пример использования
-'''
-input_audio = "output_de_2.wav"
-output_directory = "stt_output"
-process_and_save_audio(input_audio, output_directory)
-'''

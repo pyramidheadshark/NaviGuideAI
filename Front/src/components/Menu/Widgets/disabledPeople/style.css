@@ -1,0 +1,31 @@
+.disabledPeople{
+  --margin: 50px;
+  --padding: 40px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width:calc(100vw - (var(--margin) + var(--padding)) * 2);
+  height: calc(100vh - (var(--margin) + var(--padding)) * 2);
+
+  margin: var(--margin);
+  padding: var(--padding);
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+
+  font-size: 28px;
+}
+
+
+.disabledPeople> button {
+  padding: 10px;
+  background-color: green;
+  font-size: 28px;
+}
