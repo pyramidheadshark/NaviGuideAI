@@ -20,10 +20,27 @@ def process_and_save_audio(input_text, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     output_file = get_next_available_filename(output_dir)
     tts.tts_to_file(text=input_text, speaker_wav="dictor_de.wav", file_path=output_file)
+    return output_file
 
 
+import wave
+
+
+def load_wav_to_variable(file_path):
+    with wave.open(file_path, 'rb') as wav_file:
+        frames = wav_file.readframes(wav_file.getnframes())
+        return frames
+
+
+def tts_de(input_text, output_directory):
+    output_file = process_and_save_audio(input_text, output_directory)
+    return load_wav_to_variable(output_file)
+
+
+"""
 input_text = ("Sankt-Petersburg ist die kulturelle Hauptstadt Russlands, reich an Geschichte und Architektur, "
               "mit wunderschönen Brücken und Ufern, weißen Nächten, der Eremitage, dem Russischen Museum, "
               "der Peter-und-Paul-Festung, prächtigen Gärten und Parks.")
 output_directory = "tts_output"
 process_and_save_audio(input_text, output_directory)
+"""

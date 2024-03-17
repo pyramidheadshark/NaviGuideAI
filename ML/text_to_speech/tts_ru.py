@@ -15,14 +15,26 @@ def synthesize_text(text, model):
     return model.synthesize(text, raw_format=False)
 
 
-def save_audio_to_variable(result):
+def save_audio(result, output_directory):
     output_audio = result.export(format='wav')
-    return output_audio
+    output_file = os.path.join(output_directory, "output_audio.wav")
+
+    with open(output_file, "wb") as f:
+        f.write(output_audio)
+
+    return output_file
+
+import wave
 
 
-def tts_ru(text_to_synthesize):
+def load_wav_to_variable(file_path):
+    with wave.open(file_path, 'rb') as wav_file:
+        frames = wav_file.readframes(wav_file.getnframes())
+        return frames
+
+
+def tts_ru(input_text, output_directory):
     model = initialize_model()
-    result = synthesize_text(text_to_synthesize, model)
-    output_audio = save_audio_to_variable(result)
-
-    return output_audio
+    result = synthesize_text(input_text, model)
+    output_file = save_audio(result, output_directory)
+    return load_wav_to_variable(output_file)
