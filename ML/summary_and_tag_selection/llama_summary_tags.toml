@@ -17,7 +17,7 @@ prompt_part_2 = "'. The list of tags is:"
 'system_prompt': 'You are a summarization system that converts user's input into type of location he wants to find. Your answer should be in form: 'Location: {wanted type of location}'.'
 'context': """
         prompt = """
-        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО, МАКСИМУМ 40 СИМВОЛОВ. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
 """
         api_tag = ""
         [tags.navigation.locate_object_by_adress]
@@ -27,7 +27,7 @@ prompt_part_2 = "'. The list of tags is:"
 'system_prompt': 'You are a summarization system that converts user's input into adress he wants to find. Your answer should be in form: 'Location: {adress}'.'
 'context': """
         prompt = """
-        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО, МАКСИМУМ 40 СИМВОЛОВ. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
 """
         api_tag = ""
         [tags.navigation.find_a_route_to_the_nearest_object]
@@ -37,7 +37,7 @@ prompt_part_2 = "'. The list of tags is:"
 'system_prompt': 'You are a summarization system that converts user's input into type of location he wants to find. Your answer should be in form: 'Location: {wanted type of location}'.'
 'context': """
         prompt = """
-        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО, МАКСИМУМ 40 СИМВОЛОВ. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
 """
         api_tag = ""
         [tags.navigation.find_a_route_to_object_by_adress]
@@ -47,14 +47,14 @@ prompt_part_2 = "'. The list of tags is:"
 'system_prompt': 'You are a summarization system that converts user's input into adress he wants to find. Your answer should be in form: 'Location: {adress}'.'
 'context': """
         prompt = """
-        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО, МАКСИМУМ 40 СИМВОЛОВ. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
 """
         api_tag = ""
         [tags.navigation.locate_my_position]
         tag = "Show/locate my current position"
         llama_repeat = ""
         prompt = """
-        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО, МАКСИМУМ 40 СИМВОЛОВ. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту. \n[МЕСТО НАЗНАЧЕНИЯ]".
 """
         api_tag = ""
 #
@@ -101,7 +101,7 @@ prompt_part_2 = "'. The list of tags is:"
         tag = "Show me the affiche/program"
         llama_repeat = ""
         prompt = """
-        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю афишу.".
+        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО, МАКСИМУМ 40 СИМВОЛОВ. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю афишу.".
 """
         api_tag = ""
 #

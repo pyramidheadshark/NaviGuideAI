@@ -9,25 +9,20 @@ def initialize_model():
         )
     )
     return model_repository.synthesis_model()
-def get_next_output_file(output_folder):
-    counter = 1
-    output_file = os.path.join(output_folder, f'output_ru_{counter}.wav')
-    while os.path.exists(output_file):
-        counter += 1
-        output_file = os.path.join(output_folder, f'output_ru_{counter}.wav')
-    return output_file
+
+
 def synthesize_text(text, model):
     return model.synthesize(text, raw_format=False)
-def save_audio(result, output_file):
-    result.export(output_file, format='wav')
 
 
-output_folder = r'tts_output'
-os.makedirs(output_folder, exist_ok=True)
-model = initialize_model()
-text_to_synthesize = ('Санкт-Петербург - культурная столица России, богатая история и архитектура, прекрасные мосты и '
-                      'набережные, белые ночи, Эрмитаж, Российский музей, Петропавловская крепость, великолепные сады'
-                      ' и парки.')
-result = synthesize_text(text_to_synthesize, model)
-output_file = get_next_output_file(output_folder)
-save_audio(result, output_file)
+def save_audio_to_variable(result):
+    output_audio = result.export(format='wav')
+    return output_audio
+
+
+def tts_ru(text_to_synthesize):
+    model = initialize_model()
+    result = synthesize_text(text_to_synthesize, model)
+    output_audio = save_audio_to_variable(result)
+
+    return output_audio

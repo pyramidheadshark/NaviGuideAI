@@ -14,7 +14,7 @@ def translate_to_russian(text):
     return translation
 
 
-def extract_tags_plus_prompt(file_path="llama_summary_tags.toml"):
+def extract_tags_plus_prompt(file_path="ML/summary_and_tag_selection/llama_summary_tags.toml"): # ИЗМЕНЕНО ДЛЯ main
     with open(file_path, "r", encoding="utf-8") as file:
         data = toml.load(file)
         tags = data["tags"]
@@ -100,4 +100,4 @@ def llama_summary_model(user_input):  # Format: [[tag, yandex_prompt, sub, subsu
 # print(llama_summary_model("Расскажи мне историю города Москвы"))
 # print(llama_summary_model("Какие  стихи писал некрасов?"))
 # print(llama_summary_model("Расскажи мне о Петре первом"))
-print(llama_summary_model("Erzähl mir von Peter dem Ersten"))
+# print(llama_summary_model("Erzähl mir von Peter dem Ersten"))
