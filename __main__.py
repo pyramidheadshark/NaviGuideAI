@@ -27,7 +27,7 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def handle_request():
     input_text = request.json['text']
-    result = yandex_gpt_model(input_text)
+    result = "Test"
     return {'result': result}
 
 

@@ -27,6 +27,7 @@
 
 ### Concept-art (starting screen)
 ![Concept](https://i.postimg.cc/pVK2hg6t/2024-03-14-154421126.png)
+## 👉[Notion](https://luminous-hawthorn-7b3.notion.site/26f62f311f1946e0a2cce8aa7a23d6ca?pvs=4)
 
 # Setup guide:
 (tested on python3.9)
