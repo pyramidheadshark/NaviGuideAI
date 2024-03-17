@@ -28,11 +28,11 @@
 ### Concept-art (starting screen)
 ![Concept](https://i.postimg.cc/pVK2hg6t/2024-03-14-154421126.png)
 
-Write smth
-
-Our features:
-
-* Write thingies
+# Setup guide:
+(tested on python3.9)
+* Copy the repo
+* Install dependencies via "pip -r requirements.txt"
+* Start "__main__.py"
 
 ## Built With
 
@@ -45,11 +45,3 @@ At this stage, the project uses external (mostly replaceable) APIs:
 ## License
 
 Distributed under the MIT License. See [LICENSE](https://github.com/pyramidheadshark/NaviGuideAI/blob/main/LICENSE.md) for more information.
-
-## Authors
-
-* **Nikita Smirnov** - ** - [Nikita Smirnov](https://github.com/pyramidheadshark) - *ML Core*
-* **Maksim Novikov** - ** - [Maksim Novikov](https://github.com/DinoZawrik) - *Front-end*
-* **Kirill Melnikov** - ** - [Kirill Melnikov](https://github.com/Chaberis) - *STT + TTS + Avatar*
-* **Gleb Alyev** - ** - [Gleb Alyev]() - *Back-end + Lipsync*
-* **Mark Chernov** - ** - [Mark Chernov]() - *Front-end*

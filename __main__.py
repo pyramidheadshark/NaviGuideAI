@@ -1,4 +1,5 @@
 import time
+from flask import Flask, request
 from ML.summary_and_tag_selection.llama_summary_model import \
     llama_summary_model  # Format: [[tag, yandex_prompt, sub, subsub, llama_repeat_output, api_tag], user_input, language]
 from ML.yandex_gpt.yandex_gpt_model import \
@@ -20,17 +21,15 @@ def output_audio_to_wav(output_audio, output_file_path):
         f.write(output_audio)
 
 
-start_time = time.time()
-# test = yandex_gpt_model(llama_summary_model("Где находится магазин чая неподалёку?"))
-# test_audio_stt = process_and_save_audio("TestingStorage/Audio/obama_short.wav")
-# test_audio_tts_ru = tts_ru("Где находится магазин чая неподалёку?")
-# test_audio_tts_en = tts_en("Where is the tea shop near the mall?")
-# test_audio_tts_de = tts_de("Sankt-Petersburg ist die kulturelle Hauptstadt Russlands, reich an Geschichte und Architektur, "
-#               "mit wunderschönen Brücken und Ufern, weißen Nächten, der Eremitage, dem Russischen Museum, "
-#               "der Peter-und-Paul-Festung, prächtigen Gärten und Parks.")
-# test_audio_tts_zh = tts_zh(""圣彼得堡 - 俄罗斯的文化之都，拥有丰富的历史和建筑，美丽的桥梁和堤岸，白夜，厄尔米塔什博物馆，俄罗斯博物馆，彼得保罗要塞，宏伟的花园和公园。")
+app = Flask(__name__)
 
 
-end_time = time.time()
-execution_time = end_time - start_time
-print(f"Execution time: {execution_time} seconds")  # "Test done")
+@app.route('/', methods=['POST'])
+def handle_request():
+    input_text = request.json['text']
+    result = yandex_gpt_model(input_text)
+    return {'result': result}
+
+
+if __name__ == '__main__':
+    app.run(port=5000)
