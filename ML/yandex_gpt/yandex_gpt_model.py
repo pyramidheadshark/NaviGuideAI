@@ -15,7 +15,7 @@ def yandex_gpt_ask(prompt, api_key="AQVN2L3Brv3dSuAGd78-534nR_5EWuMgQsORMtcE"):
         "modelUri": modelUri,
         "completionOptions": {
             "stream": False,
-            "temperature": 0.25,
+            "temperature": 0.20,
             "maxTokens": "4000"
         },
         "messages": [
@@ -74,6 +74,7 @@ def yandex_gpt_model(input_data, api_key="AQVN2L3Brv3dSuAGd78-534nR_5EWuMgQsORMt
 
 
 # Тест
+'''
 input_data_1 = [['Show/locate me the nearest object/organization',
              '        ТЫ ДОЛЖЕН ОТВЕТИТЬ МАКСИМАЛЬНО КРАТКО. ТВОЙ ОТВЕТ  ОБЯЗАТЕЛЬНО ДОЛЖЕН СОДЕРЖАТЬ ТОЛЬКО ФРАЗУ: "С радостью, открываю карту.".\n',
              'navigation', 'locate_nearest_object', 'Чайный магазин поблизости', ''],
@@ -82,3 +83,4 @@ input_data_2 = [['Tell/describe/write me a historical/culture story/history/plac
 input_data_3 = [['Show/tell me a historical/culture story/history/place/event/building/person/object', '                ТЫ ИСТОРИЧЕСКИЙ АССИСТЕНТ-ГИД. ОТВЕЧАЙ В ИНФОСТИЛЕ, В ПОЛОЖИТЕЛЬНОМ ТОНЕ.".\n        ', 'other', 'other', '', ''], 'Erzähl mir von Peter dem Ersten', 'de']
 print(yandex_gpt_model(input_data_3))
 print("end")
+'''
